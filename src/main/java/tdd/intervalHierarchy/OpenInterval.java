@@ -1,6 +1,6 @@
 package tdd.intervalHierarchy;
 
-public class OpenInterval extends Interval{
+public class OpenInterval extends Interval {
 
 	public OpenInterval(double min, double max) {
 		super(min, max);
