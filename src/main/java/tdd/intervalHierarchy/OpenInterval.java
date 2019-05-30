@@ -1,17 +1,13 @@
 package tdd.intervalHierarchy;
 
-public class OpenInterval {
-
-	private double min;
-	
-	private double max;
+public class OpenInterval extends Interval{
 
 	public OpenInterval(double min, double max) {
-		this.min = min;
-		this.max = max;
+		super(min, max);
 	}
-
-	public boolean isIntersected(OpenInterval another) {
+	
+	@Override
+	public boolean isIntersected(Interval another) {
 		if(another.min == another.max || this.min == this.max) {
 			return false;
 		}
@@ -20,7 +16,8 @@ public class OpenInterval {
 				another.isIncluded(this.min) || this.min == another.min;
 	}
 
-	private boolean isIncluded(double value) {
+	@Override
+	protected boolean isIncluded(double value) {
 		return this.min < value && value < this.max;
 	}
 
