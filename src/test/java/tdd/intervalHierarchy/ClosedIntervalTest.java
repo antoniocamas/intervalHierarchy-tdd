@@ -1,5 +1,8 @@
 package tdd.intervalHierarchy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 import junit.framework.TestCase;
@@ -10,27 +13,31 @@ public class ClosedIntervalTest extends IntervalTest {
 	protected Interval createInterval(double min, double max) {
 		return new ClosedIntervalBuilder().min(min).max(max).build();
 	}
-	
 
-		@Test
+	@Override
+	protected List<Interval> createIntervals(double min, double max, double minOther, double maxOther) {
+		List<Interval> intervals = new ArrayList<Interval>();
+		intervals.add(this.createInterval(min, max));
+		intervals.add(this.createInterval(minOther, maxOther));
+		return intervals;
+	}
+	
+	@Test
 	public void testIsIntersectedAdjacentByLeft() {
-		Interval one = new ClosedIntervalBuilder().min(3).max(14).build();
-		Interval another = new ClosedIntervalBuilder().min(1).max(3).build();
-		assertTrue(one.isIntersected(another));
+		List<Interval> intervals = this.createIntervals(3, 14, 1, 3);
+		assertTrue(intervals.get(0).isIntersected(intervals.get(1)));
 	}
 	
 	@Test
 	public void testIsIntersectedAdjacentByRight() {
-		Interval one = new ClosedIntervalBuilder().min(3).max(14).build();
-		Interval another = new ClosedIntervalBuilder().min(14).max(16).build();
-		assertTrue(one.isIntersected(another));
+		List<Interval> intervals = this.createIntervals(3, 14, 14, 16);
+		assertTrue(intervals.get(0).isIntersected(intervals.get(1)));
 	}
 	
 	@Test
 	public void testIsIntersectedPointIncluded() {
-		Interval one = new ClosedIntervalBuilder().min(3).max(3).build();
-		Interval another = new ClosedIntervalBuilder().min(1).max(4).build();
-		assertTrue(one.isIntersected(another));
+		List<Interval> intervals = this.createIntervals(3, 3, 1, 4);
+		assertTrue(intervals.get(0).isIntersected(intervals.get(1)));
 	}
 
 }
