@@ -21,22 +21,30 @@ public class Interval {
 	}
 	
 	public boolean isIntersected(Interval another) {
+		
 		if (!this.open) {
-			return this.isIncluded(another.min) ||
-					this.isIncluded(another.max)||
-					another.isIncluded(this.min);
+			return this.isIncluded(another.endPointMin) ||
+					this.isIncluded(another.endPointMax)||
+					another.isIncluded(this.endPointMin);
 		}
 		
-		if(another.min == another.max || this.min == this.max) {
+		if(another.endPointMin.isEqual(another.endPointMax) ||
+				this.endPointMin.isEqual(this.endPointMax))    {
 			return false;
 		}
-		return  this.isIncluded(another.min) ||
-				this.isIncluded(another.max) ||
-				another.isIncluded(this.min) || 
-				this.min == another.min;
+		
+		return  this.isIncluded(another.endPointMin) ||
+				this.isIncluded(another.endPointMax) ||
+				another.isIncluded(this.endPointMin) ||
+				this.endPointMin.isEqual(another.endPointMin);
+				
 	}
 
-	protected boolean isIncluded(double value) {
+	private boolean isIncluded(double value) {
 		return this.endPointMin.isSmaller(value) && this.endPointMax.isBigger(value);
+	}
+	
+	private boolean isIncluded(EndPoint other) {
+		return this.endPointMin.isSmaller(other.value) && this.endPointMax.isBigger(other.value);
 	}
 }

@@ -23,6 +23,10 @@ public class EndPoint {
 			return this.value > value;
 		}
 		return this.value >= value;
-	} 
+	}
+	
+	public boolean isEqual(EndPoint other) {
+		return this.value == other.value;
+	}
 	
 }
