@@ -1,6 +1,6 @@
 package tdd.intervalHierarchy;
 
-public abstract class Interval {
+public class Interval {
 
 	protected double min;
 	

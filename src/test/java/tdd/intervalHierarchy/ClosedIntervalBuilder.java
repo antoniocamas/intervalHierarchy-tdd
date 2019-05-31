@@ -9,6 +9,6 @@ public class ClosedIntervalBuilder extends IntervalBuilder {
 	
 	@Override
 	public Interval build() {
-		return new ClosedInterval(this.min, this.max, this.open);
+		return new Interval(this.min, this.max, this.open);
 	}
 }

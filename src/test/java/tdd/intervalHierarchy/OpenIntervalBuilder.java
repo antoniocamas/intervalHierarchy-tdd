@@ -9,6 +9,6 @@ public class OpenIntervalBuilder extends IntervalBuilder {
 		
 	@Override
 	public Interval build() {
-		return new OpenInterval(this.min, this.max, this.open);
+		return new Interval(this.min, this.max, this.open);
 	}
 }
