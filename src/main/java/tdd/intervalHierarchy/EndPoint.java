@@ -10,19 +10,19 @@ public class EndPoint {
 		this.value = value;
 		this.open = open;
 	}
-	
-	public boolean isSmaller(double value) {
+		
+	public boolean isSmaller(EndPoint other) {
 		if (this.open) {
-			return this.value < value;
+			return this.value < other.value;
 		}
-		return this.value <= value;
+		return this.value <= other.value;
 	}
 	
-	public boolean isBigger(double value) {
+	public boolean isBigger(EndPoint other) {
 		if (this.open) {
-			return this.value > value;
+			return this.value > other.value;
 		}
-		return this.value >= value;
+		return this.value >= other.value;
 	}
 	
 	public boolean isEqual(EndPoint other) {
