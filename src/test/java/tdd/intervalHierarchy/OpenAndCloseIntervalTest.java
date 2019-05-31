@@ -22,10 +22,9 @@ public class OpenAndCloseIntervalTest extends IntervalTest {
 		return intervals;
 	}
 	
-	//This test requires a major refactor. Commented until refactor is done
-//	@Test
-//	public void testIsIntersectedAdjacentByLeft() {
-//		List<Interval> intervals = this.createIntervals(3, 14, 1, 3);
-//		assertFalse(intervals.get(0).isIntersected(intervals.get(1)));
-//	}
+	@Test
+	public void testIsIntersectedAdjacentByLeft() {
+		List<Interval> intervals = this.createIntervals(3, 14, 1, 3);
+		assertFalse(intervals.get(0).isIntersected(intervals.get(1)));
+	}
 }
