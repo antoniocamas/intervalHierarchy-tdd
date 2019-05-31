@@ -2,8 +2,8 @@ package tdd.intervalHierarchy;
 
 public class ClosedInterval extends Interval{
 
-	public ClosedInterval(double min, double max) {
-		super(min, max);
+	public ClosedInterval(double min, double max, boolean open) {
+		super(min, max, open);
 	}
 
 	@Override
@@ -12,10 +12,4 @@ public class ClosedInterval extends Interval{
 				this.isIncluded(another.max)||
 				another.isIncluded(this.min);
 	}
-
-	@Override
-	protected boolean isIncluded(double value) {
-		return this.min <= value && value <= this.max;
-	}
-
 }

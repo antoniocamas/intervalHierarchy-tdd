@@ -6,9 +6,12 @@ public abstract class IntervalBuilder {
 	
 	protected double max;
 	
+	protected boolean open;
+	
 	public IntervalBuilder(){
 		this.min = 0;
 		this.max = 1;
+		this.open = false;
 	}
 	
 	public IntervalBuilder min(double min) {
