@@ -2,16 +2,22 @@ package tdd.intervalHierarchy;
 
 public class Interval {
 
-	protected double min;
+	private double min;
 	
-	protected double max;
+	private double max;
 	
-	boolean open = false; 
+	private boolean open = false;
+	
+	private EndPoint endPointMin;
+	
+	private EndPoint endPointMax;
 
 	public Interval(double min, double max, boolean open) {
 		this.min = min;
 		this.max = max;
 		this.open = open;
+		this.endPointMin = new EndPoint(min, open);
+		this.endPointMax = new EndPoint(max, open);
 	}
 	
 	public boolean isIntersected(Interval another) {
@@ -31,9 +37,6 @@ public class Interval {
 	}
 
 	protected boolean isIncluded(double value) {
-		if (this.open) {
-			return this.min < value && value < this.max;
-		}
-		return this.min <= value && value <= this.max;
+		return this.endPointMin.isSmaller(value) && this.endPointMax.isBigger(value);
 	}
 }
