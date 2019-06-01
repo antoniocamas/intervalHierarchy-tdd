@@ -27,7 +27,6 @@ public class Interval {
 		return this.haveSameValues(another);
 	}
 
-
 	private boolean isIntersectedbyOneSide(Interval another) {
 		if (this.endPointLeft.isLeft(another.endPointLeft) &&
 				this.endPointRight.isRight(another.endPointLeft)) {
