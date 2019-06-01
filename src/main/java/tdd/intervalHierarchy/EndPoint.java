@@ -11,20 +11,6 @@ public abstract class EndPoint {
 		this.open = open;
 	}
 		
-	public boolean isSmaller(EndPoint other) {
-		if (this.open) {
-			return this.value < other.value;
-		}
-		return this.value <= other.value;
-	}
-	
-	public boolean isBigger(EndPoint other) {
-		if (this.open) {
-			return this.value > other.value;
-		}
-		return this.value >= other.value;
-	}
-	
 	public boolean isEqual(EndPoint other) {
 		return this.value == other.value;
 	}

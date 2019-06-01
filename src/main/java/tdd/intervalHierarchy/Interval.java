@@ -40,9 +40,5 @@ public class Interval {
 	
 	private boolean isEmpty() {
 		return this.endPointMin.isEqual(this.endPointMax) && this.open;
-	}
-	
-	private boolean isIncluded(EndPoint other) {
-		return this.endPointMin.isSmaller(other) && this.endPointMax.isBigger(other);
-	}
+	}	
 }
