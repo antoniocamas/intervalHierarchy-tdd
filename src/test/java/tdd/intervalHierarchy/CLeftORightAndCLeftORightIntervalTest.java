@@ -11,11 +11,6 @@ import tdd.intervalHierarchy.builders.OpenIntervalBuilder;
 public class CLeftORightAndCLeftORightIntervalTest extends IntervalTest {
 
 	@Override
-	protected Interval createInterval(double leftValue, double rightValue) {
-		return new OpenIntervalBuilder().leftValue(leftValue).rightValue(rightValue).build();
-	}
-	
-	@Override
 	protected List<Interval> createIntervals(
 			double leftValue, double rightValue, 
 			double leftValueOther, double rightValueOther) {

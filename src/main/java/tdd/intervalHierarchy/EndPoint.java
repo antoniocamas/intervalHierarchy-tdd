@@ -1,6 +1,6 @@
 package tdd.intervalHierarchy;
 
-public abstract class EndPoint {
+public class EndPoint {
 
 	protected double value;
 			
@@ -11,7 +11,7 @@ public abstract class EndPoint {
 		this.open = open;
 	}
 		
-	public boolean isEqual(EndPoint other) {
+	public boolean isSameValue(EndPoint other) {
 		return this.value == other.value;
 	}
 	
@@ -24,10 +24,16 @@ public abstract class EndPoint {
 	}
 	
 	protected boolean isLeft(EndPoint point) {
-		return false;
+		if (this.isAnyOpen(point)) {
+			return this.value < point.value;
+		}
+		return this.value <= point.value;		
 	}
 	
 	protected boolean isRight(EndPoint point) {
-		return false;
+		if (this.isAnyOpen(point)) {
+			return this.value > point.value;
+		}
+		return this.value >= point.value;
 	}
 }

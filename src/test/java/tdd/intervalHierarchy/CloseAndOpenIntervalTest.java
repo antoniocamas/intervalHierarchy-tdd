@@ -12,11 +12,6 @@ import tdd.intervalHierarchy.builders.OpenIntervalBuilder;
 public class CloseAndOpenIntervalTest extends IntervalTest {
 
 	@Override
-	protected Interval createInterval(double min, double max) {
-		return new OpenIntervalBuilder().leftValue(min).rightValue(max).build();
-	}
-	
-	@Override
 	protected List<Interval> createIntervals(double min, double max, double minOther, double maxOther) {
 		List<Interval> intervals = new ArrayList<Interval>();
 		intervals.add(new ClosedIntervalBuilder().leftValue(minOther).rightValue(maxOther).build());

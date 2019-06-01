@@ -10,7 +10,6 @@ import tdd.intervalHierarchy.builders.ClosedIntervalBuilder;
 
 public class ClosedIntervalTest extends IntervalTest {
 
-	@Override
 	protected Interval createInterval(double leftValue, double rightValue) {
 		return new ClosedIntervalBuilder().leftValue(leftValue).rightValue(rightValue).build();
 	}
