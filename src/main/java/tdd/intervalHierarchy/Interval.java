@@ -4,30 +4,30 @@ public class Interval {
 
 	private boolean open = false;
 	
-	private EndPoint endPointMin;
+	private EndPoint endPointLeft;
 	
-	private EndPoint endPointMax;
+	private EndPoint endPointRight;
 
-	public Interval(double min, double max, boolean open) {
-		this.open = open;
-		this.endPointMin = new EndPointFrom(min, open);
-		this.endPointMax = new EndPointUntil(max, open);
+	public Interval(double leftValue, boolean leftOpen, double rightValue, boolean rightOpen) {
+		this.open = leftOpen;
+		this.endPointLeft = new EndPointFrom(leftValue, leftOpen);
+		this.endPointRight = new EndPointUntil(rightValue, rightOpen);
 	}
 	
 	public boolean isIntersected(Interval another) {
 		if (this.isEmpty() || another.isEmpty()) {
 			return false;
 		}
-		if (this.endPointMin.isLeft(another.endPointMin) && this.endPointMax.isRight(another.endPointMin)) {
+		if (this.endPointLeft.isLeft(another.endPointLeft) && this.endPointRight.isRight(another.endPointLeft)) {
 			return true;
 		}
-		if (this.endPointMax.isRight(another.endPointMax) && this.endPointMin.isLeft(another.endPointMax)) {
+		if (this.endPointRight.isRight(another.endPointRight) && this.endPointLeft.isLeft(another.endPointRight)) {
 			return true;
 		}
-		if (another.endPointMin.isLeft(this.endPointMin) && another.endPointMax.isRight(this.endPointMin)) {
+		if (another.endPointLeft.isLeft(this.endPointLeft) && another.endPointRight.isRight(this.endPointLeft)) {
 			return true;
 		}
-		if (another.endPointMax.isRight(this.endPointMax) && another.endPointMin.isLeft(this.endPointMax)) {
+		if (another.endPointRight.isRight(this.endPointRight) && another.endPointLeft.isLeft(this.endPointRight)) {
 			return true;
 		}
 				
@@ -35,10 +35,10 @@ public class Interval {
 	}
 
 	private boolean isEqual(Interval other) {
-		return this.endPointMin.isEqual(other.endPointMin) && this.endPointMax.isEqual(other.endPointMax);
+		return this.endPointLeft.isEqual(other.endPointLeft) && this.endPointRight.isEqual(other.endPointRight);
 	}
 	
 	private boolean isEmpty() {
-		return this.endPointMin.isEqual(this.endPointMax) && this.open;
+		return this.endPointLeft.isEqual(this.endPointRight) && this.open;
 	}	
 }

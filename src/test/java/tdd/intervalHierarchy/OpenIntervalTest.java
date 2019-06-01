@@ -6,19 +6,20 @@ import java.util.List;
 import org.junit.Test;
 
 import junit.framework.TestCase;
+import tdd.intervalHierarchy.builders.OpenIntervalBuilder;
 
 public class OpenIntervalTest extends IntervalTest {
 
 	@Override
-	protected Interval createInterval(double min, double max) {
-		return new OpenIntervalBuilder().min(min).max(max).build();
+	protected Interval createInterval(double leftValue, double rightValue) {
+		return new OpenIntervalBuilder().leftValue(leftValue).rightValue(rightValue).build();
 	}
 	
 	@Override
-	protected List<Interval> createIntervals(double min, double max, double minOther, double maxOther) {
+	protected List<Interval> createIntervals(double leftValue, double rightValue, double leftValueOther, double rightValueOther) {
 		List<Interval> intervals = new ArrayList<Interval>();
-		intervals.add(this.createInterval(min, max));
-		intervals.add(this.createInterval(minOther, maxOther));
+		intervals.add(this.createInterval(leftValue, rightValue));
+		intervals.add(this.createInterval(leftValueOther, rightValueOther));
 		return intervals;
 	}
 	

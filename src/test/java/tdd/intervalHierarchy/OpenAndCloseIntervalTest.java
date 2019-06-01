@@ -6,19 +6,21 @@ import java.util.List;
 import org.junit.Test;
 
 import junit.framework.TestCase;
+import tdd.intervalHierarchy.builders.ClosedIntervalBuilder;
+import tdd.intervalHierarchy.builders.OpenIntervalBuilder;
 
 public class OpenAndCloseIntervalTest extends IntervalTest {
 
 	@Override
-	protected Interval createInterval(double min, double max) {
-		return new OpenIntervalBuilder().min(min).max(max).build();
+	protected Interval createInterval(double leftValue, double rightValue) {
+		return new OpenIntervalBuilder().leftValue(leftValue).rightValue(rightValue).build();
 	}
 	
 	@Override
-	protected List<Interval> createIntervals(double min, double max, double minOther, double maxOther) {
+	protected List<Interval> createIntervals(double leftValue, double rightValue, double leftValueOther, double rightValueOther) {
 		List<Interval> intervals = new ArrayList<Interval>();
-		intervals.add(new OpenIntervalBuilder().min(min).max(max).build());
-		intervals.add(new ClosedIntervalBuilder().min(minOther).max(maxOther).build());
+		intervals.add(new OpenIntervalBuilder().leftValue(leftValue).rightValue(rightValue).build());
+		intervals.add(new ClosedIntervalBuilder().leftValue(leftValueOther).rightValue(rightValueOther).build());
 		return intervals;
 	}
 	

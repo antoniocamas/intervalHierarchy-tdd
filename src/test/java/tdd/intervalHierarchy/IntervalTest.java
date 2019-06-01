@@ -8,9 +8,11 @@ import junit.framework.TestCase;
 
 public abstract class IntervalTest extends TestCase {
 
-	protected abstract Interval createInterval(double min, double max);
+	protected abstract Interval createInterval(double leftValue, double rightValue);
 	
-	protected abstract List<Interval> createIntervals(double min, double max, double minOther, double maxOther);
+	protected abstract List<Interval> createIntervals(
+			double leftValue, double rightValue, 
+			double leftValueOther, double rightValueOther);
 	
 	@Test
 	public void testIsIntersectedOverlapingByLeft() {
