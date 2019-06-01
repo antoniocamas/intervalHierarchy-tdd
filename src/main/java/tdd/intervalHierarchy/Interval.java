@@ -1,15 +1,12 @@
 package tdd.intervalHierarchy;
 
 public class Interval {
-
-	private boolean open = false;
-	
+		
 	private EndPoint endPointLeft;
 	
 	private EndPoint endPointRight;
 
 	public Interval(double leftValue, boolean leftOpen, double rightValue, boolean rightOpen) {
-		this.open = leftOpen;
 		this.endPointLeft = new EndPointFrom(leftValue, leftOpen);
 		this.endPointRight = new EndPointUntil(rightValue, rightOpen);
 	}
@@ -39,6 +36,7 @@ public class Interval {
 	}
 	
 	private boolean isEmpty() {
-		return this.endPointLeft.isEqual(this.endPointRight) && this.open;
+		return this.endPointLeft.isEqual(this.endPointRight) && 
+				this.endPointLeft.areBothOpen(this.endPointRight);
 	}	
 }

@@ -2,7 +2,7 @@ package tdd.intervalHierarchy.builders;
 
 import tdd.intervalHierarchy.Interval;
 
-public abstract class IntervalBuilder {
+public class IntervalBuilder {
 
 	protected double leftValue;
 	
@@ -35,7 +35,7 @@ public abstract class IntervalBuilder {
 	}
 	
 	public IntervalBuilder rightOpen() {
-		this.leftOpen = true;
+		this.rightOpen = true;
 		return this;
 	}
 	

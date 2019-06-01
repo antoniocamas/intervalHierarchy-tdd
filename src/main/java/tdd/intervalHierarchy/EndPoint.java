@@ -19,6 +19,10 @@ public abstract class EndPoint {
 		return this.open || point.open;
 	}
 	
+	protected boolean areBothOpen(EndPoint point) {
+		return this.open && point.open;
+	}
+	
 	protected boolean isLeft(EndPoint point) {
 		return false;
 	}
