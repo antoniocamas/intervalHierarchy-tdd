@@ -40,5 +40,9 @@ public class OpenIntervalTest extends IntervalTest {
 		assertFalse(intervals.get(0).isIntersected(intervals.get(1)));
 	}
 
-
+	@Test
+	public void testIsIntersectedOtherEmptyIncluded() {
+		List<Interval> intervals = this.createIntervals(1, 4, 3, 3);
+		assertFalse(intervals.get(0).isIntersected(intervals.get(1)));
+	}
 }

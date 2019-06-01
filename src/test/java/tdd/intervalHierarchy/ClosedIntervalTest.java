@@ -40,4 +40,15 @@ public class ClosedIntervalTest extends IntervalTest {
 		assertTrue(intervals.get(0).isIntersected(intervals.get(1)));
 	}
 
+	@Test
+	public void testIsIntersectedOtherPointIncluded() {
+		List<Interval> intervals = this.createIntervals(1, 4, 3, 3);
+		assertTrue(intervals.get(0).isIntersected(intervals.get(1)));
+	}
+	
+	@Test
+	public void testIsIntersectedTwoPointIncluded() {
+		List<Interval> intervals = this.createIntervals(3, 3, 3, 3);
+		assertTrue(intervals.get(0).isIntersected(intervals.get(1)));
+	}
 }
