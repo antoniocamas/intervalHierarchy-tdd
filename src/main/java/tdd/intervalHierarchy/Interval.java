@@ -28,15 +28,17 @@ public class Interval {
 	}
 
 	private boolean isIntersectedbyOneSide(Interval another) {
-		if (this.endPointLeft.isLeft(another.endPointLeft) &&
-				this.endPointRight.isRight(another.endPointLeft)) {
+		if (this.isIncluded(another.endPointLeft) || 
+				another.isIncluded(this.endPointRight)) {
 			return true;
 		}
-		if (this.endPointRight.isRight(another.endPointRight) && 
-				this.endPointLeft.isLeft(another.endPointRight)) {
-			return true;
-		}
+		
 		return false;
+	}
+	
+	private boolean isIncluded(EndPoint point) {
+		return this.endPointLeft.isLeft(point) &&
+				this.endPointRight.isRight(point);
 	}
 	
 	private boolean haveSameValues(Interval other) {

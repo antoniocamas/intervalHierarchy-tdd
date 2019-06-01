@@ -60,8 +60,6 @@ public abstract class IntervalTest extends TestCase {
 		assertFalse(intervals.get(0).isIntersected(intervals.get(1)));
 	}
 	
-	//####################################
-	
 	@Test
 	public void testIsIntersectedOverlapingInfinitePositiveOtherByLeft() {
 		List<Interval> intervals = this.createIntervals(3, 14, Double.NEGATIVE_INFINITY, 7);
