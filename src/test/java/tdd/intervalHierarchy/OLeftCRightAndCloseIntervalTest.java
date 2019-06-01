@@ -5,10 +5,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import junit.framework.TestCase;
 import tdd.intervalHierarchy.builders.ClosedIntervalBuilder;
 import tdd.intervalHierarchy.builders.IntervalBuilder;
-import tdd.intervalHierarchy.builders.OpenIntervalBuilder;
 
 public class OLeftCRightAndCloseIntervalTest extends IntervalTest {
 

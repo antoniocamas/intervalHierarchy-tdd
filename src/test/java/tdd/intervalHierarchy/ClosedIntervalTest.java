@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import junit.framework.TestCase;
 import tdd.intervalHierarchy.builders.ClosedIntervalBuilder;
 
 public class ClosedIntervalTest extends IntervalTest {

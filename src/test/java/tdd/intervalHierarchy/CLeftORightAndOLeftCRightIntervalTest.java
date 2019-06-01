@@ -6,7 +6,6 @@ import java.util.List;
 import org.junit.Test;
 
 import tdd.intervalHierarchy.builders.IntervalBuilder;
-import tdd.intervalHierarchy.builders.OpenIntervalBuilder;
 
 public class CLeftORightAndOLeftCRightIntervalTest extends IntervalTest {
 

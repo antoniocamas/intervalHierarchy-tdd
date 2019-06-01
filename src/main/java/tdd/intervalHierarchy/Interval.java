@@ -18,6 +18,17 @@ public class Interval {
 		if (this.isEmpty() || another.isEmpty()) {
 			return false;
 		}
+		
+		if (this.isIntersectedbyOneSide(another)||
+				another.isIntersectedbyOneSide(this)) {
+			return true;
+		}
+		
+		return this.haveSameValues(another);
+	}
+
+
+	private boolean isIntersectedbyOneSide(Interval another) {
 		if (this.endPointLeft.isLeft(another.endPointLeft) &&
 				this.endPointRight.isRight(another.endPointLeft)) {
 			return true;
@@ -26,18 +37,9 @@ public class Interval {
 				this.endPointLeft.isLeft(another.endPointRight)) {
 			return true;
 		}
-		if (another.endPointLeft.isLeft(this.endPointLeft) && 
-				another.endPointRight.isRight(this.endPointLeft)) {
-			return true;
-		}
-		if (another.endPointRight.isRight(this.endPointRight) && 
-				another.endPointLeft.isLeft(this.endPointRight)) {
-			return true;
-		}
-				
-		return this.haveSameValues(another);
+		return false;
 	}
-
+	
 	private boolean haveSameValues(Interval other) {
 		return this.endPointLeft.isSameValue(other.endPointLeft) &&
 				this.endPointRight.isSameValue(other.endPointRight);

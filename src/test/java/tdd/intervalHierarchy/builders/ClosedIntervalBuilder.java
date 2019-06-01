@@ -1,7 +1,5 @@
 package tdd.intervalHierarchy.builders;
 
-import tdd.intervalHierarchy.Interval;
-
 public class ClosedIntervalBuilder extends IntervalBuilder {
 
 	public ClosedIntervalBuilder(){
